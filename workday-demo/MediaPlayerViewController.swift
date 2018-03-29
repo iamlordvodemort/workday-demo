@@ -12,6 +12,7 @@ import AVFoundation
 
 class MediaPlayerViewController: UIViewController {
 
+    @IBOutlet weak var restartBtn: UIButton!
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     fileprivate var currentMediaItemId: String!
@@ -33,6 +34,12 @@ class MediaPlayerViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    @IBAction func restartPlayerAction(_ sender: UIButton) {
+        checkServerStatus()
+        restartBtn.isEnabled = false
+        loadingView.isHidden = false
     }
 
     func play(item: MediaItem) {
@@ -101,6 +108,9 @@ class MediaPlayerViewController: UIViewController {
             startPlayingMedia(nextItemId)
         } else {
             cleanUp()
+            loadingView.isHidden = true
+            restartBtn.isHidden = false
+            restartBtn.isEnabled = true
         }
     }
 
@@ -139,7 +149,6 @@ extension MediaPlayerViewController {
     }
 
     func startPlayingMedia(_ itemId: String) {
-        debugPrint("fetching item with id: \(itemId)")
         let resource = MediaResource(id: itemId)
         let mediaItemRequest = ApiRequest(resource: resource)
         request = mediaItemRequest
@@ -149,6 +158,7 @@ extension MediaPlayerViewController {
                 let mediaItem = firstItem else {
                     return
             }
+            self?.restartBtn.isHidden = true
             self?.play(item: mediaItem)
         }
     }

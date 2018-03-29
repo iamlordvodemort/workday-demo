@@ -42,10 +42,31 @@
                                     <constraint firstItem="RLA-0u-eHm" firstAttribute="centerX" secondItem="Jch-FB-no9" secondAttribute="centerX" id="zxw-Lu-AHL"/>
                                 </constraints>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFA-ej-MeT">
+                                <rect key="frame" x="299" y="172" width="68" height="30"/>
+                                <color key="backgroundColor" red="0.19215686269999999" green="0.43529411759999997" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="Bus-Gi-fyf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Restart"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="restartPlayerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X8Y-mn-KKy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Jch-FB-no9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ADV-gG-VMQ"/>
+                            <constraint firstItem="jFA-ej-MeT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Js8-BZ-lRi"/>
+                            <constraint firstItem="jFA-ej-MeT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Oqk-a0-dFD"/>
                             <constraint firstItem="Jch-FB-no9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Wf9-Lq-8XQ"/>
                             <constraint firstItem="Jch-FB-no9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bQn-8Z-21o"/>
                             <constraint firstItem="Jch-FB-no9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ydy-nH-zE8"/>
@@ -57,11 +78,12 @@
                     <connections>
                         <outlet property="loadingActivityIndicator" destination="pMk-xu-ct6" id="gyN-h5-tMJ"/>
                         <outlet property="loadingView" destination="Jch-FB-no9" id="jxS-cc-vOn"/>
+                        <outlet property="restartBtn" destination="jFA-ej-MeT" id="tsB-oe-Q1R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="134"/>
+            <point key="canvasLocation" x="347.67616191904051" y="133.59999999999999"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OAf-VH-tuE">

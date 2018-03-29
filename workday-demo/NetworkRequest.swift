@@ -103,7 +103,9 @@ extension FetchAllItemsRequest: NetworkRequest {
         do {
             if let items = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                 let array = items["media_items"] as! [String]
-                itemsArray = Array(Set(array))
+                let arraySlice = array.prefix(upTo: 2)
+                let newArray = Array(arraySlice)
+                itemsArray = newArray
             }
         } catch {
             debugPrint("could not parse data")
@@ -116,5 +118,3 @@ extension FetchAllItemsRequest: NetworkRequest {
         load(url, withCompletion: completion)
     }
 }
-
-
